@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Photography Gallery | Chayaveli Photography</title>
+
+  <meta
+    name="description"
+    content="Explore photography collections by Chayaveli Photography."
+  >
+
+  <meta name="theme-color" content="#171715">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .gallery-page-header {
+      padding: 85px 7% 75px;
+      text-align: center;
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .gallery-page-header .eyebrow {
+      justify-content: center;
+    }
+
+    .gallery-page-header h1 {
+      margin: 25px 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(55px, 8vw, 100px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .gallery-page-header h1 span {
+      color: #d7b986;
+      font-style: italic;
+    }
+
+    .gallery-page-header .gallery-intro {
+      max-width: 540px;
+      margin: 0 auto;
+      color: #c4beb4;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .gallery-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 24px 7%;
+      border-bottom: 1px solid #ddd5c8;
+    }
+
+    .gallery-back-link {
+      color: #786748;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .gallery-back-link:hover {
+      color: var(--ink);
+    }
+
+    .gallery-category-label {
+      color: #8d8478;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    .gallery-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 22px;
+      padding: 55px 7% 90px;
+    }
+
+    .gallery-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      background: #ded5c8;
+      transition: filter 0.3s ease;
+    }
+
+    .gallery-photo:hover {
+      filter: brightness(0.88);
+    }
+
+    .gallery-photo[hidden] {
+      display: none;
+    }
+
+    .gallery-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 50px 15px;
+      color: #777168;
+      line-height: 1.8;
+    }
+
+    .gallery-contact {
+      padding: 85px 7%;
+      text-align: center;
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .gallery-contact h2 {
+      margin: 0 0 22px;
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .gallery-contact h2 span {
+      color: #d7b986;
+      font-style: italic;
+    }
+
+    .gallery-contact p {
+      margin-bottom: 28px;
+      color: #c4beb4;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 760px) {
+      .gallery-photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+        padding: 35px 6% 65px;
+      }
+
+      .gallery-page-header {
+        padding: 65px 6% 55px;
+      }
+
+      .gallery-toolbar {
+        padding: 20px 6%;
+      }
+
+      .gallery-contact {
+        padding: 65px 6%;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .gallery-photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Chayaveli Photography home">
+      <span class="brand-name">CHAYAVELI</span>
+      <span class="brand-subtitle">PHOTOGRAPHY</span>
+    </a>
+
+    <a class="nav-cta" href="index.html#contact">
+      Contact <span>↗</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="gallery-page-header">
+      <p class="eyebrow">
+        <span class="eyebrow-line"></span>
+        CHAYAVELI PHOTOGRAPHY
+        <span class="eyebrow-line"></span>
+      </p>
+
+      <h1 id="gallery-title">Wedding <span>Stories.</span></h1>
+
+      <p class="gallery-intro" id="gallery-description">
+        A collection of emotions, celebrations and unforgettable moments
+        captured through our lens.
+      </p>
+    </section>
+
+    <div class="gallery-toolbar">
+      <a class="gallery-back-link" href="index.html#services">
+        ← BACK TO SERVICES
+      </a>
+
+      <span class="gallery-category-label" id="gallery-label">
+        WEDDING COLLECTION
+      </span>
+    </div>
+
+    <section
+      class="gallery-photo-grid"
+      id="gallery-grid"
+      aria-label="Photography collection"
+    >
+      <img
+        class="gallery-photo"
+        data-category="wedding"
+        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
+        alt="Wedding photography sample 1"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="wedding"
+        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80"
+        alt="Wedding photography sample 2"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="wedding"
+        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80"
+        alt="Wedding photography sample 3"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="wedding"
+        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80"
+        alt="Wedding photography sample 4"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="wedding"
+        src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80"
+        alt="Wedding photography sample 5"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="wedding"
+        src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=80"
+        alt="Wedding photography sample 6"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="prewedding"
+        src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=80"
+        alt="Pre-wedding photography sample"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="prewedding"
+        src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=900&q=80"
+        alt="Pre-wedding photography sample"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="portrait"
+        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80"
+        alt="Portrait photography sample"
+        loading="lazy"
+      >
+
+      <img
+        class="gallery-photo"
+        data-category="portrait"
+        src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=80"
+        alt="Portrait photography sample"
+        loading="lazy"
+      >
+
+      <p class="gallery-empty" id="gallery-empty" hidden>
+        No sample photographs are available in this collection yet.
+      </p>
+    </section>
+
+    <section class="gallery-contact">
+      <h2>Your story deserves<br><span>to be remembered.</span></h2>
+
+      <p>
+        Tell us about your occasion. Let's start a conversation.
+      </p>
+
+      <a
+        class="button button-light"
+        id="gallery-enquiry"
+        href="https://wa.me/918333030838"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Enquire on WhatsApp <span>↗</span>
+      </a>
+    </section>
+  </main>
+
+  <script defer>
+    const collections = {
+      wedding: {
+        title: "Wedding",
+        ending: "Stories.",
+        label: "WEDDING COLLECTION",
+        description:
+          "A collection of emotions, celebrations and unforgettable moments captured through our lens."
+      },
+      prewedding: {
+        title: "Pre-Wedding",
+        ending: "Stories.",
+        label: "PRE-WEDDING COLLECTION",
+        description:
+          "Beautiful couple portraits celebrating your story together."
+      },
+      portrait: {
+        title: "Portrait",
+        ending: "Stories.",
+        label: "PORTRAIT COLLECTION",
+        description:
+          "Personal expressions and portraits captured with care."
+      },
+      event: {
+        title: "Event",
+        ending: "Stories.",
+        label: "EVENT COLLECTION",
+        description:
+          "The people and moments that make every celebration special."
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const requestedCategory = params.get("category") || "wedding";
+    const category = Object.hasOwn(collections, requestedCategory)
+      ? requestedCategory
+      : "wedding";
+
+    const collection = collections[category];
+
+    document.title =
+      collection.title + " Photography | Chayaveli Photography";
+
+    document.getElementById("gallery-title").innerHTML =
+      collection.title + ' <span>' + collection.ending + "</span>";
+
+    document.getElementById("gallery-label").textContent =
+      collection.label;
+
+    document.getElementById("gallery-description").textContent =
+      collection.description;
+
+    const photos = document.querySelectorAll(".gallery-photo");
+    let visibleCount = 0;
+
+    photos.forEach((photo) => {
+      const isMatch = photo.dataset.category === category;
+      photo.hidden = !isMatch;
+
+      if (isMatch) visibleCount++;
+    });
+
+    document.getElementById("gallery-empty").hidden = visibleCount !== 0;
+
+    const message =
+      "Hello Chayaveli Photography! I'm interested in " +
+      collection.title +
+      " Photography. Could you please share more details?";
+
+    document.getElementById("gallery-enquiry").href =
+      "https://wa.me/918333030838?text=" + encodeURIComponent(message);
+      
+/* Full-screen Photo Viewer */
+document.addEventListener("DOMContentLoaded", () => {
+const photoViewer = document.getElementById("photo-viewer");
+const viewerImage = document.getElementById("viewer-image");
+const viewerCaption = document.getElementById("viewer-caption");
+const viewerClose = document.getElementById("viewer-close");
+const viewerPrev = document.getElementById("viewer-prev");
+const viewerNext = document.getElementById("viewer-next");
+
+const galleryPhotos = Array.from(
+  document.querySelectorAll(".gallery-photo")
+).filter((photo) => !photo.hidden);
+
+let currentPhotoIndex = 0;
+
+function showPhoto(index) {
+  if (galleryPhotos.length === 0) return;
+
+  currentPhotoIndex =
+    (index + galleryPhotos.length) % galleryPhotos.length;
+
+  const photo = galleryPhotos[currentPhotoIndex];
+
+  viewerImage.classList.add("changing");
+
+  setTimeout(() => {
+    viewerImage.src = photo.currentSrc || photo.src;
+    viewerImage.alt = photo.alt || "Gallery photograph";
+    viewerCaption.textContent = photo.alt || "";
+
+    requestAnimationFrame(() => {
+      viewerImage.classList.remove("changing");
+    });
+  }, 120);
+}
+
+
+viewerPrev.addEventListener("click", (event) => {
+  event.stopPropagation();
+  showPhoto(currentPhotoIndex - 1);
+});
+
+viewerNext.addEventListener("click", (event) => {
+  event.stopPropagation();
+  showPhoto(currentPhotoIndex + 1);
+});
+
+document.querySelectorAll(".gallery-photo").forEach((photo) => {
+  photo.style.cursor = "zoom-in";
+  photo.setAttribute("tabindex", "0");
+  photo.setAttribute("role", "button");
+  photo.setAttribute("aria-label", "View " + (photo.alt || "photo"));
+
+  function openPhoto() {
+    if (photo.hidden) return;
+
+    currentPhotoIndex = galleryPhotos.indexOf(photo);
+showPhoto(currentPhotoIndex);   
+
+    photoViewer.classList.add("active");
+    photoViewer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    viewerClose.focus();
+  }
+
+  photo.addEventListener("click", openPhoto);
+
+  photo.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openPhoto();
+    }
+  });
+});
+
+function closePhotoViewer() {
+  photoViewer.classList.remove("active");
+  photoViewer.setAttribute("aria-hidden", "true");
+  viewerImage.src = "";
+  document.body.style.overflow = "";
+}
+
+viewerClose.addEventListener("click", closePhotoViewer);
+
+photoViewer.addEventListener("click", (event) => {
+  if (event.target === photoViewer) {
+    closePhotoViewer();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (!photoViewer.classList.contains("active")) return;
+
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    showPhoto(currentPhotoIndex + 1);
+  }
+
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    showPhoto(currentPhotoIndex - 1);
+  }
+
+  if (event.key === "Escape") {
+    closePhotoViewer();
+  }
+});
+});
+  </script>
+<!-- Full-screen Photo Viewer -->
+<div class="photo-viewer" id="photo-viewer" aria-hidden="true">
+  
+<button
+  class="viewer-close"
+  id="viewer-close"
+  type="button"
+  aria-label="Back to Gallery"
+>
+  <span aria-hidden="true">←</span>
+  <span>Back to Gallery</span>
+</button>
+
+
+  <img
+    class="viewer-image"
+    id="viewer-image"
+    src=""
+    alt=""
+  >
+<button
+  class="viewer-prev"
+  id="viewer-prev"
+  type="button"
+  aria-label="Previous photo"
+>&#10094;</button>
+
+<button
+  class="viewer-next"
+  id="viewer-next"
+  type="button"
+  aria-label="Next photo"
+>&#10095;</button>
+  <p class="viewer-caption" id="viewer-caption"></p>
+</div>
+
+</body>
+</html>
